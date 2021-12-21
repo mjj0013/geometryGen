@@ -4,14 +4,9 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 	template: __dirname + '/dist/index.html',
 	filename: './index.html',
 	inject: false
-	
-
 });
 
 const path = require('path');
-
-
-
 module.exports = {
 	entry: './src/index.js',
 	mode: 'development',
@@ -73,18 +68,17 @@ module.exports = {
 	output:{
 		filename: 'transformed.js',
 		path: path.resolve(__dirname, 'dist'),
-		
 		publicPath: '/',
 		clean: true
-		
-		
-		
 	},
 	devServer: {
 		host: 'localhost',
 		
 		port: 8080,
 		historyApiFallback: true,
+		
+		open: true,
+		
 		open: {
 			app:{
 				name:'chrome',
