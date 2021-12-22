@@ -20,14 +20,14 @@ class Home extends React.Component {
         // this.makeEpicycloid(21,3);
         // this.editEpicycloid(21,10, 0);
         // this.animateEpicycloid();
-        this.makeEpicycloid(3,1);
+        this.makeEpicycloid(9,8);
 
         
         
-        this.editEpicycloid(3,1, 0, 75,4, 4);
-        this.editEpicycloid(3,1, 0, 75,3, 1);
-        this.editEpicycloid(3,1, 0, 75,2, 4);
-        this.editEpicycloid(3,1, 0, 75,1, 1);
+        this.editEpicycloid(9,8, 90, 75,1, 1);
+        this.editEpicycloid(9,8, 100, 75,1, 1);
+        this.editEpicycloid(9,8, 180, 75,1, 1);
+        this.editEpicycloid(9,8, 360, 75,1, 1);
         
         
 
@@ -49,7 +49,7 @@ class Home extends React.Component {
         // <animateTransform id="epicycloidAnimation" attributeName="transform" attributeType="XML" type="rotate"
         //                   from="0 362.5 362.5" to="360 362.5 362.5" dur="4s" repeatCount="indefinite"
         // />
-        document.getElementById("epicycloid").insertAdjacentHTML('beforeend',`<animate id="epicycloidAnimation" begin="0s" attributeName="d" attributeType="XML" values="${pathString}" dur="3s" repeatCount="indefinite" />`);
+        document.getElementById("epicycloid").insertAdjacentHTML('beforeend',`<animate id="epicycloidAnimation" begin="0s" attributeName="d" attributeType="XML" values="${pathString}" dur="7s" repeatCount="indefinite" />`);
     }
     makeEpicycloid(p,q) {
         // this version works with: this.makeEpicycloid(3,1);
@@ -83,6 +83,8 @@ class Home extends React.Component {
         console.log("numSegments",numSegments)
         var epicycloid = document.getElementById("epicycloid");
         epicycloid.setAttribute("d",d);
+        
+
         this.cycloidPaths.push(d);
     }
 
@@ -143,10 +145,10 @@ class Home extends React.Component {
         for(let i =0; i<numCusps*360; i+=degPerIter) {
             //subtract 5156.6(90deg to radians) as phase to make it skewed   
             let a = i;
-            let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*a*(R+r)/r));
-            let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*a*(R+r)/r));
+            let x = ((R+r)*Math.cos(radPerIter*a + skewShift) - (r)*Math.cos(radPerIter*a*(R+r)/r));
+            let y = ((R+r)*Math.sin(radPerIter*a + skewShift) - (r)*Math.sin(radPerIter*a*(R+r)/r));
 
-            d+=`A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i+skewShift} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
+            d+=`A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i + skewShift/57.2958} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
             
             ++numSegments;
         }
