@@ -20,14 +20,21 @@ class Home extends React.Component {
 	}
 
     componentDidMount() {
+        
+
+        
+
+        // this.makeEpicycloid(1.55,3.1)
+        // this.editEpicycloid(.775,1.55, 0, 1, 0, 0);
+
         this.makeEpicycloid(3,6);
-        this.editEpicycloid(3,6, 135, 75, 1, 1);
-        this.editEpicycloid(3,6, 180, 75, .5, .5);
-        this.editEpicycloid(1.5,3, 30, 75, .5, .5);
-        this.editEpicycloid(1.5,3, 45, 75, 1, 1);
-        this.editEpicycloid(.75,1.5, 90, 75, .5, .5);
-        this.editEpicycloid(.375,.75, 45, 75, 1, 1);
-        this.editEpicycloid(.1875,.375, 90, 75, .5, .5);
+        this.editEpicycloid(3,6, 135, 1, 1, 1);
+        this.editEpicycloid(3,6, 180, 2, .5, .5);
+        this.editEpicycloid(1.5,3, 30, 4, .5, .5);
+        this.editEpicycloid(1.5,3, 45, 2, 1, 1);
+        this.editEpicycloid(.75,1.5, 90, 1, .5, .5);
+        this.editEpicycloid(.375,.75, 45, 1, 1, 1);
+        this.editEpicycloid(.1875,.375, 90, 1, .5, .5);
         this.animateEpicycloid();
     }
 
@@ -40,16 +47,16 @@ class Home extends React.Component {
                 this.cycloidPaths =[];
                 document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(3,6);
-                this.editEpicycloid(3,6, 135, 75, .5, .5);
-                this.editEpicycloid(3,6, 180, 75, .5, .5);
-                this.editEpicycloid(1.5,3, 30, 75, 1, 1);
-                this.editEpicycloid(1.5,3, 45, 75, 1, 1);
-                this.editEpicycloid(.75,1.5, 90, 75, .5, .5);
-                this.editEpicycloid(.75,1.5, 135, 75, 1, 1);
-                this.editEpicycloid(.375,.75, 180, 75, .5, .5);
-                this.editEpicycloid(.375,.75, 225, 75, 1, 1);
-                this.editEpicycloid(.1875,.375, 270, 75, .5, .5);
-                this.editEpicycloid(.1875,.375, 315, 75, 1, 1);
+                this.editEpicycloid(3,6, 135, 1, .5, .5);
+                this.editEpicycloid(3,6, 180, 1, .5, .5);
+                this.editEpicycloid(1.5,3, 30, 1, 1, 1);
+                this.editEpicycloid(1.5,3, 45, 1, 1, 1);
+                this.editEpicycloid(.75,1.5, 90, 1, .5, .5);
+                this.editEpicycloid(.75,1.5, 135, 1, 1, 1);
+                this.editEpicycloid(.375,.75, 180, 1, .5, .5);
+                this.editEpicycloid(.375,.75, 225, 1, 1, 1);
+                this.editEpicycloid(.1875,.375, 270, 1, .5, .5);
+                this.editEpicycloid(.1875,.375, 315, 1, 1, 1);
                 this.animateEpicycloid();
                 this.currentEpicycloid = 1;
                 break;
@@ -61,14 +68,14 @@ class Home extends React.Component {
                 this.cycloidPaths =[];
                 document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(1,5);
-                this.editEpicycloid(1,5, 45, 75, .5, .5);
-                this.editEpicycloid(1,5, 90, 75, .5, .5);
-                this.editEpicycloid(2,10, 135, 75, 1, 1);
-                this.editEpicycloid(2,10, 180, 75, 1, 1);
-                this.editEpicycloid(4,20, 225, 75, .5, .5);
-                this.editEpicycloid(4,20, 270, 75, 1, 1);
-                this.editEpicycloid(8,40, 315, 75, .5, .5);
-                this.editEpicycloid(8,40, 360, 75, 1, 1);
+                this.editEpicycloid(1,5, 45, 1, .5, .5);
+                this.editEpicycloid(1,5, 90, 1, .5, .5);
+                this.editEpicycloid(2,10, 135, 1, 1, 1);
+                this.editEpicycloid(2,10, 180, 1, 1, 1);
+                this.editEpicycloid(4,20, 225, 1, .5, .5);
+                this.editEpicycloid(4,20, 270, 1, 1, 1);
+                this.editEpicycloid(8,40, 315, 1, .5, .5);
+                this.editEpicycloid(8,40, 360, 1, 1, 1);
                 this.animateEpicycloid();
                 this.currentEpicycloid = 2;
                 break;
@@ -80,10 +87,10 @@ class Home extends React.Component {
                 this.cycloidPaths =[];
                 document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(.6,1.2);
-                this.editEpicycloid(.6,1.2, 45, 75, .5, .5);
-                this.editEpicycloid(.6,1.2, 90, 75, .5, .5);
-                this.editEpicycloid(1.2,2.4, 135, 75, 1, 1);
-                this.editEpicycloid(1.2,2.4, 180, 75, 1, 1);
+                this.editEpicycloid(.6,1.2, 45, 1, .5, .5);
+                this.editEpicycloid(.6,1.2, 90, 1, .5, .5);
+                this.editEpicycloid(1.2,2.4, 135, 1, 1, 1);
+                this.editEpicycloid(1.2,2.4, 180, 1, 1, 1);
                 this.animateEpicycloid();
                 this.currentEpicycloid = 3;
                 break;
@@ -95,12 +102,12 @@ class Home extends React.Component {
                 this.cycloidPaths =[];
                 document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(1,3);
-                this.editEpicycloid(1,3, 45, 75, .5, .5);
-                this.editEpicycloid(1,3, 90, 75, .5, .5);
-                this.editEpicycloid(2,6, 135, 75, 1, 1);
-                this.editEpicycloid(2,6, 180, 75, 1, 1);
-                this.editEpicycloid(4,12, 225, 75, .5, .5);
-                this.editEpicycloid(4,12, 270, 75, .5, .5);
+                this.editEpicycloid(1,3, 45, 1, .5, .5);
+                this.editEpicycloid(1,3, 90, 1, .5, .5);
+                this.editEpicycloid(2,6, 135, 1, 1, 1);
+                this.editEpicycloid(2,6, 180, 1, 1, 1);
+                this.editEpicycloid(4,12, 225, 1, .5, .5);
+                this.editEpicycloid(4,12, 270, 1, .5, .5);
                 this.animateEpicycloid();
                 this.currentEpicycloid = 4;
                 break;
@@ -112,15 +119,15 @@ class Home extends React.Component {
                 this.cycloidPaths =[];
                 document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(2,4);
-                this.editEpicycloid(2,4, 135, 75, 1, 1);
-                this.editEpicycloid(2,4, 180, 75, .5, .5);
-                this.editEpicycloid(1,2, 30, 75, .5, .5);
-                this.editEpicycloid(.5,1, 45, 75, 1, 1);
-                this.editEpicycloid(.5,1, 90, 75, .5, .5);
-                this.editEpicycloid(.25,.5, 225, 75, 1, 1);
-                this.editEpicycloid(.25,.5, 270, 75, .5, .5);
-                this.editEpicycloid(.125,.25, 225, 75, 1, 1);
-                this.editEpicycloid(.125,.25, 270, 75, .5, .5);
+                this.editEpicycloid(2,4, 135, 1, 1, 1);
+                this.editEpicycloid(2,4, 180, 1, .5, .5);
+                this.editEpicycloid(1,2, 30, 1, .5, .5);
+                this.editEpicycloid(.5,1, 45, 1, 1, 1);
+                this.editEpicycloid(.5,1, 90, 1, .5, .5);
+                this.editEpicycloid(.25,.5, 225, 1, 1, 1);
+                this.editEpicycloid(.25,.5, 270, 1, .5, .5);
+                this.editEpicycloid(.125,.25, 225, 1, 1, 1);
+                this.editEpicycloid(.125,.25, 270, 1, .5, .5);
                 this.animateEpicycloid();
                 this.currentEpicycloid = 5;
                 break;
@@ -132,9 +139,9 @@ class Home extends React.Component {
                 this.cycloidPaths =[];
                 document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(1,1.5);
-                this.editEpicycloid(2,3, 45, 75, 1, 1);
-                this.editEpicycloid(4,6, 45, 75, 1, 1);
-                this.editEpicycloid(8,12, 45, 75, 1, 1);
+                this.editEpicycloid(2,3, 45, 1, 1, 1);
+                this.editEpicycloid(4,6, 45, 1, 1, 1);
+                this.editEpicycloid(8,12, 45, 1, 1, 1);
                 this.animateEpicycloid();
                 this.currentEpicycloid = 6;
                 break;
@@ -206,6 +213,9 @@ class Home extends React.Component {
             var x = ((R+r)*Math.cos(radPerIter*(a)) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
             var y = ((R+r)*Math.sin(radPerIter*(a)) - (r)*Math.sin(radPerIter*(a)*(R+r)/r));
             d+=`A${(R+r)/r} ${(R+r)/r} ${i} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
+            // var x1 = ((R+r)*Math.cos(radPerIter*(a-degPerIter)) - (r)*Math.cos(radPerIter*(a-degPerIter)*(R+r)/r));
+            // var y1 = ((R+r)*Math.sin(radPerIter*(a-degPerIter)) - (r)*Math.sin(radPerIter*(a-degPerIter)*(R+r)/r));
+            // d+=`C${x1},${y1},${Math.hypot(x1,x)},${Math.hypot(y1,y)},${imgCenter.x+x},${imgCenter.y+y} `
             ++numSegments;
         }
         var epicycloid = document.getElementById("epicycloid");
@@ -213,8 +223,9 @@ class Home extends React.Component {
         this.cycloidPaths.push(d);
     }
 
-    editEpicycloid(p,q, skewShift=0, r=75, xCoeff=1, yCoeff=1) {
+    editEpicycloid(p,q, skewShift=0, amp=1, xCoeff=1, yCoeff=1) {
         var k = p/q;
+        var r = 75;
         var R = k*r;
         var imgCenter = {x:this.svgWidth/2-(R+r)/r, y:this.svgHeight/2-(R+r)/r}
         var d = `M${imgCenter.x+R},${imgCenter.y} `
@@ -225,39 +236,56 @@ class Home extends React.Component {
         var degPerIter = numCusps*((R+r)/r);
 
         let a0 = degPerIter*(1);
+        
         let x0 = ((R+r)*Math.cos(radPerIter*(a0)) - (r)*Math.cos(radPerIter*(a0+skewShift)*(R+r)/r));
         let y0 = ((R+r)*Math.sin(radPerIter*(a0)) - (r)*Math.sin(radPerIter*(a0+skewShift)*(R+r)/r));
         var d = `M${imgCenter.x+x0},${imgCenter.y+y0} `
-
+        
         for(let i =0; i<numCusps*360; i+=degPerIter) {
             if(i==0) continue;
             let a = i;
+            
             let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a+skewShift)*(R+r)/r));
             let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a+skewShift)*(R+r)/r));
+
+            // var x1 = ((R+r)*Math.cos(radPerIter*(a-degPerIter)) - (r)*Math.cos(radPerIter*(a-degPerIter)*(R+r)/r));
+            // var y1 = ((R+r)*Math.sin(radPerIter*(a-degPerIter)) - (r)*Math.sin(radPerIter*(a-degPerIter)*(R+r)/r));
+            // d+=`C${xCoeff*x1},${yCoeff*y1},${Math.hypot(x1,x)},${Math.hypot(y1,y)}, ${imgCenter.x+x},${imgCenter.y+y} `
+            
             d+=`A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
         }
         this.cycloidPaths.push(d);
     }
-
-    
+    // <filter id="imgFilter1" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+                        
+    //                     <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="8" result="turb">
+                            
+    //                     </feTurbulence>
+    //                     <feDisplacementMap id="dispFE" result="displacement" in="SourceGraphic" in2="turbulence" scale="200" xChannelSelector="R" yChannelSelector="B">
+    //                         <animate attributeName="scale" values="200; 100; 50; 25"  dur="4s" repeatCount="indefinite"></animate>
+    //                     </feDisplacementMap>
+                        
+    //                     <feComposite in="displacement" in2="SourceAlpha" operator="in" result="comp" />
+    //                     <feBlend mode="overlay" in="comp" in2="SourceGraphic"/>
+    //                 </filter>
     render() {
         return(
-                <Container id="homeContainer">
-                    <svg className="geoSVG" id="mainSVG" width={this.svgWidth} height={this.svgHeight}>
-                        <g id="epicycloidGroup"></g>
-                        <path id="epicycloid" fill="none" stroke="black" ></path>
-                    </svg>
-                    <Menu id="sequenceSelector" >
-                        <Button id="sequenceButton1" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 1</Button>
-                        <Button id="sequenceButton2" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 2</Button>
-                        <Button id="sequenceButton3" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 3</Button>
-                        <Button id="sequenceButton4" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 4</Button>
-                        <Button id="sequenceButton5" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 5</Button>
-                        <Button id="sequenceButton6" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 6</Button>
-                    </Menu>
-                </Container>
+            <Container id="homeContainer">
+                <svg className="geoSVG" id="mainSVG" width={this.svgWidth} height={this.svgHeight}>
+                    
+                    <g id="epicycloidGroup"></g>
+                    <path id="epicycloid" fill="none" stroke="black" ></path>
+                </svg>
+                <Menu id="sequenceSelector" >
+                    <Button id="sequenceButton1" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 1</Button>
+                    <Button id="sequenceButton2" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 2</Button>
+                    <Button id="sequenceButton3" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 3</Button>
+                    <Button id="sequenceButton4" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 4</Button>
+                    <Button id="sequenceButton5" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 5</Button>
+                    <Button id="sequenceButton6" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 6</Button>
+                </Menu>
+            </Container>
         );
     }
 }
-
 export default Home;

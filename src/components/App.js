@@ -8,8 +8,6 @@ import { Routes, BrowserRouter, Route} from "react-router-dom";
 
 import Home from './Home';
 
-
-
 function App() {
 	return(
 		<BrowserRouter>
@@ -21,6 +19,4 @@ function App() {
 		</BrowserRouter>
 	);
 }
-
-//export default hot(App);
 export default App;

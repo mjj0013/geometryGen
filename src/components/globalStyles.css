@@ -1,23 +1,15 @@
 
 #homeContainer {
     display:block;
-    /* top:0;
-    left:0;
-    position:initial; */
 }
-
 .geoSVG {
     position:absolute;
     border:1px solid black;
     left:50fr;
     top:75px;
 }
-
-
 #sequenceSelector {
-    /* display:inline-block; */
     top:0px;
-    /* left:30fr; */
     width:800px;
     height:25px;
     position:absolute;
