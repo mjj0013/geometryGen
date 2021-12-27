@@ -6,6 +6,13 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
+
+
+var numDivisions = 1;
+
+function measureIndexOfArray(arrayLength, divisions, currentAmount) {
+    return Math.floor(currentAmount/(arrayLength/divisions))}
+
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
@@ -17,6 +24,11 @@ class Home extends React.Component {
         this.svgWidth=800;
         this.svgHeight=700;
         this.currentEpicycloid = 1;
+
+        this.cycloidSegments = [];
+
+
+        this.cycloidSegmentValues = [];
 	}
 
     componentDidMount() {
@@ -42,10 +54,15 @@ class Home extends React.Component {
         switch(e.target.id) {
             case "sequenceButton1":
                 if(this.currentEpicycloid==1) break;
-                document.getElementById("epicycloidAnimation").remove();
-                document.getElementById("epicycloid").remove();
-                this.cycloidPaths =[];
-                document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
+                for(let i =0; i < numDivisions; ++i) {
+                    document.getElementById(`epicycloidAnimation${i}`).remove();
+                    document.getElementById(`path${i}`).remove();
+                }
+                // document.getElementById("epicycloidAnimation").remove();
+                // document.getElementById("epicycloid").remove();
+                 // this.cycloidPaths =[];
+                 this.cycloidSegments = []
+                // document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(3,6);
                 this.editEpicycloid(3,6, 135, 1, .5, .5);
                 this.editEpicycloid(3,6, 180, 1, .5, .5);
@@ -63,10 +80,15 @@ class Home extends React.Component {
 
             case "sequenceButton2":
                 if(this.currentEpicycloid==2) break;
-                document.getElementById("epicycloidAnimation").remove();
-                document.getElementById("epicycloid").remove();
-                this.cycloidPaths =[];
-                document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
+                for(let i =0; i < numDivisions; ++i) {
+                    document.getElementById(`epicycloidAnimation${i}`).remove();
+                    document.getElementById(`path${i}`).remove();
+                }
+                // document.getElementById("epicycloidAnimation").remove();
+                // document.getElementById("epicycloid").remove();
+                 // this.cycloidPaths =[];
+                 this.cycloidSegments = []
+                // document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(1,5);
                 this.editEpicycloid(1,5, 45, 1, .5, .5);
                 this.editEpicycloid(1,5, 90, 1, .5, .5);
@@ -82,10 +104,15 @@ class Home extends React.Component {
 
             case "sequenceButton3":
                 if(this.currentEpicycloid==3) break;
-                document.getElementById("epicycloidAnimation").remove();
-                document.getElementById("epicycloid").remove();
-                this.cycloidPaths =[];
-                document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
+                for(let i =0; i < numDivisions; ++i) {
+                    document.getElementById(`epicycloidAnimation${i}`).remove();
+                    document.getElementById(`path${i}`).remove();
+                }
+                // document.getElementById("epicycloidAnimation").remove();
+                // document.getElementById("epicycloid").remove();
+                 // this.cycloidPaths =[];
+                 this.cycloidSegments = []
+                // document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(.6,1.2);
                 this.editEpicycloid(.6,1.2, 45, 1, .5, .5);
                 this.editEpicycloid(.6,1.2, 90, 1, .5, .5);
@@ -97,10 +124,15 @@ class Home extends React.Component {
 
             case "sequenceButton4":
                 if(this.currentEpicycloid==4) break;
-                document.getElementById("epicycloidAnimation").remove();
-                document.getElementById("epicycloid").remove();
-                this.cycloidPaths =[];
-                document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
+                for(let i =0; i < numDivisions; ++i) {
+                    document.getElementById(`epicycloidAnimation${i}`).remove();
+                    document.getElementById(`path${i}`).remove();
+                }
+                // document.getElementById("epicycloidAnimation").remove();
+                // document.getElementById("epicycloid").remove();
+                 // this.cycloidPaths =[];
+                 this.cycloidSegments = []
+                // document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(1,3);
                 this.editEpicycloid(1,3, 45, 1, .5, .5);
                 this.editEpicycloid(1,3, 90, 1, .5, .5);
@@ -114,10 +146,15 @@ class Home extends React.Component {
 
             case "sequenceButton5":
                 if(this.currentEpicycloid==5) break;
-                document.getElementById("epicycloidAnimation").remove();
-                document.getElementById("epicycloid").remove();
-                this.cycloidPaths =[];
-                document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
+                for(let i =0; i < numDivisions; ++i) {
+                    document.getElementById(`epicycloidAnimation${i}`).remove();
+                    document.getElementById(`path${i}`).remove();
+                }
+                // document.getElementById("epicycloidAnimation").remove();
+                // document.getElementById("epicycloid").remove();
+                 // this.cycloidPaths =[];
+                 this.cycloidSegments = []
+                // document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(2,4);
                 this.editEpicycloid(2,4, 135, 1, 1, 1);
                 this.editEpicycloid(2,4, 180, 1, .5, .5);
@@ -134,10 +171,15 @@ class Home extends React.Component {
 
             case "sequenceButton6":
                 if(this.currentEpicycloid==6) break;
-                document.getElementById("epicycloidAnimation").remove();
-                document.getElementById("epicycloid").remove();
-                this.cycloidPaths =[];
-                document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
+                for(let i =0; i < numDivisions; ++i) {
+                    document.getElementById(`epicycloidAnimation${i}`).remove();
+                    document.getElementById(`path${i}`).remove();
+                }
+                // document.getElementById("epicycloidAnimation").remove();
+                // document.getElementById("epicycloid").remove();
+                // this.cycloidPaths =[];
+                this.cycloidSegments = []
+                // document.getElementById("mainSVG").insertAdjacentHTML('beforeend',`<path id="epicycloid" stroke="black" fill="none"></path>`)
                 this.makeEpicycloid(1,1.5);
                 this.editEpicycloid(2,3, 45, 1, 1, 1);
                 this.editEpicycloid(4,6, 45, 1, 1, 1);
@@ -148,17 +190,33 @@ class Home extends React.Component {
         }
     }
     animateEpicycloid() {
-        var pathString = ""
-        var durPerPhase = 3;
-        var spline = ".5 1 0.75 1;"
-        var keySplines = ""
-        var totalDur=this.cycloidPaths.length*durPerPhase;
-        for(let i=0; i < this.cycloidPaths.length;++i) {
-            pathString+=this.cycloidPaths[i]
-            pathString+=";"
-            keySplines+=spline;
+        
+        for(let a=0; a <numDivisions;++a) {
+            var pathString = ""
+            var durPerPhase = 3;
+            var spline = ".5 1 0.75 1;"
+            var keySplines = ""
+            var totalDur=this.cycloidSegments[a].length*durPerPhase;
+            for(let i=0; i < this.cycloidSegments[a].length;++i) {
+                pathString+=this.cycloidSegments[a][i]
+                pathString+=";"
+                keySplines+=spline;
+            }
+           
+            document.getElementById(`path${a}`).insertAdjacentHTML('beforeend',`<animate id="epicycloidAnimation${a}"  begin="0s" attributeName="d" keySplines="${keySplines}" attributeType="XML" values="${pathString}" dur="${totalDur}s" repeatCount="indefinite" />`);
         }
-        document.getElementById("epicycloid").insertAdjacentHTML('beforeend',`<animate id="epicycloidAnimation"  begin="0s" attributeName="d" keySplines="${keySplines}" attributeType="XML" values="${pathString}" dur="${totalDur}s" repeatCount="indefinite" />`);
+        
+        // var pathString = ""
+        // var durPerPhase = 3;
+        // var spline = ".5 1 0.75 1;"
+        // var keySplines = ""
+        // var totalDur=this.cycloidPaths.length*durPerPhase;
+        // for(let i=0; i < this.cycloidPaths.length;++i) {
+        //     pathString+=this.cycloidPaths[i]
+        //     pathString+=";"
+        //     keySplines+=spline;
+        // }
+        // document.getElementById("epicycloid").insertAdjacentHTML('beforeend',`<animate id="epicycloidAnimation"  begin="0s" attributeName="d" keySplines="${keySplines}" attributeType="XML" values="${pathString}" dur="${totalDur}s" repeatCount="indefinite" />`);
     }
     makeEpicycloid(p,q) {
         var k = p/q;
@@ -173,54 +231,73 @@ class Home extends React.Component {
         let a0 = degPerIter*(1);
         let x0 = ((R+r)*Math.cos(radPerIter*(a0)) - (r)*Math.cos(radPerIter*(a0)*(R+r)/r));
         let y0 = ((R+r)*Math.sin(radPerIter*(a0)) - (r)*Math.sin(radPerIter*(a0)*(R+r)/r));
-        var d = `M${imgCenter.x+x0},${imgCenter.y+y0} `
-        var numSegments = 0;
-        // var currentPathObj = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        // currentPathObj.setAttribute("id","path0");
+        // var d = `M${imgCenter.x+x0},${imgCenter.y+y0} `
+        // var numSegments = 0;
+
+        var currentPathObj = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        currentPathObj.setAttribute("id","path0");
         // currentPathObj.setAttribute("stroke",`hsl(${220}, ${getRandomInt(0,70)}%, ${getRandomInt(0,70)}%)`);
-        // this.cycloidPaths.push([`M${imgCenter.x+x0},${imgCenter.y+y0} `])
-        // var maxSegments = Math.floor(numCusps*360/degPerIter)
-        // var numSubPaths = Math.floor(maxSegments/3);
-        // console.log("maxSegments",maxSegments)
-        // for(let i =0; i<numCusps*360; i+=degPerIter) {
-        //     if(i==0) continue;
-        //     let pathOrder = Math.floor(i/degPerIter);
-        //     if(pathOrder%(maxSegments/numSubPaths)==0) {
-        //         document.getElementById("epicycloidGroup").appendChild(currentPathObj);
-        //         var currentPathObj = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        //         currentPathObj.setAttribute("id",`path${this.cycloidPaths.length}`);
-        //         currentPathObj.setAttribute("stroke",`hsl(${220}, ${getRandomInt(0,70)}%, ${getRandomInt(0,70)}%)`);
-        //         currentPathObj.setAttribute("d",this.cycloidPaths[this.cycloidPaths.length-1][0]);
-        //         currentPathObj.setAttribute("fill","none");
-        //         let a = i;
-        //         let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
-        //         let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a)*(R+r)/r));
-        //         this.cycloidPaths.push([`M${imgCenter.x+x},${imgCenter.y+y} `]);
-        //         this.cycloidPaths[this.cycloidPaths.length-1][0] +=`A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `;
-        //     }
-        //     else {
-        //         let a = i;
-        //         let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
-        //         let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a)*(R+r)/r));
-        //         // d+=`A${(R+r)/r} ${(R+r)/r} ${i} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
-        //         this.cycloidPaths[this.cycloidPaths.length-1][0] += `A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
-        //     }
-        // }
-        // try:for(let i =0; i<(maxSegments)*(360); i+=degPerIter) {
-        for(let i =0; i<(numCusps)*(360); i+=degPerIter) {
+        currentPathObj.setAttribute("stroke","black");
+        currentPathObj.setAttribute("fill","none");
+        this.cycloidSegments.push([`M${imgCenter.x+x0},${imgCenter.y+y0} `])
+        var maxSegments = Math.floor(numCusps*360/degPerIter)
+
+        // this.cycloidSegmentValues[0] = []
+       
+        var numSubPaths = Math.floor(maxSegments/numDivisions);
+        var pastX = x0;
+        var pastY = y0;
+        console.log("maxSegments",maxSegments)
+        for(let i =0; i<numCusps*360; i+=degPerIter) {
             if(i==0) continue;
-            var a = i;
-            var x = ((R+r)*Math.cos(radPerIter*(a)) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
-            var y = ((R+r)*Math.sin(radPerIter*(a)) - (r)*Math.sin(radPerIter*(a)*(R+r)/r));
-            d+=`A${(R+r)/r} ${(R+r)/r} ${i} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
-            // var x1 = ((R+r)*Math.cos(radPerIter*(a-degPerIter)) - (r)*Math.cos(radPerIter*(a-degPerIter)*(R+r)/r));
-            // var y1 = ((R+r)*Math.sin(radPerIter*(a-degPerIter)) - (r)*Math.sin(radPerIter*(a-degPerIter)*(R+r)/r));
-            // d+=`C${x1},${y1},${Math.hypot(x1,x)},${Math.hypot(y1,y)},${imgCenter.x+x},${imgCenter.y+y} `
-            ++numSegments;
+            let pathOrder = Math.floor(i/degPerIter);
+            
+            if(pathOrder%(numSubPaths)==0 && pathOrder>=numSubPaths) {
+
+                currentPathObj.setAttribute("d",this.cycloidSegments[this.cycloidSegments.length-1][0]);
+
+                document.getElementById("epicycloidGroup").appendChild(currentPathObj);
+                currentPathObj = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+
+                currentPathObj.setAttribute("id",`path${this.cycloidSegments.length}`);
+                
+                // currentPathObj.setAttribute("stroke",`hsl(${220}, ${getRandomInt(0,70)}%, ${getRandomInt(0,70)}%)`);
+                currentPathObj.setAttribute("stroke","black");
+                // currentPathObj.setAttribute("d",this.cycloidSegments[this.cycloidSegments.length-1][0]);
+                currentPathObj.setAttribute("fill","none");
+                let a = i;
+                let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
+                let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a)*(R+r)/r));
+                let a0 = degPerIter*(pathOrder-1);
+                let x0 = ((R+r)*Math.cos(radPerIter*(a0)) - (r)*Math.cos(radPerIter*(a0)*(R+r)/r));
+                let y0 = ((R+r)*Math.sin(radPerIter*(a0)) - (r)*Math.sin(radPerIter*(a0)*(R+r)/r));
+                this.cycloidSegments.push([`M${imgCenter.x +x0},${imgCenter.y +y0} `]);
+                this.cycloidSegments[this.cycloidSegments.length-1][0] +=`A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `;
+
+               
+            }
+            else {
+                let a = i;
+                let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
+                let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a)*(R+r)/r));
+               
+                this.cycloidSegments[this.cycloidSegments.length-1][0] += `A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
+            }
         }
-        var epicycloid = document.getElementById("epicycloid");
-        epicycloid.setAttribute("d",d);
-        this.cycloidPaths.push(d);
+        document.getElementById("epicycloidGroup").appendChild(currentPathObj);
+       
+        // for(let i =0; i<(numCusps)*(360); i+=degPerIter) {
+        //     if(i==0) continue;
+        //     var a = i;
+        //     var x = ((R+r)*Math.cos(radPerIter*(a)) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
+        //     var y = ((R+r)*Math.sin(radPerIter*(a)) - (r)*Math.sin(radPerIter*(a)*(R+r)/r));
+        //     d+=`A${(R+r)/r} ${(R+r)/r} ${i} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
+        //     ++numSegments;
+        // }
+        // var epicycloid = document.getElementById("epicycloid");
+        // epicycloid.setAttribute("d",d);
+        // this.cycloidPaths.push(d);
     }
 
     editEpicycloid(p,q, skewShift=0, amp=1, xCoeff=1, yCoeff=1) {
@@ -236,43 +313,78 @@ class Home extends React.Component {
         var degPerIter = numCusps*((R+r)/r);
 
         let a0 = degPerIter*(1);
-        
         let x0 = ((R+r)*Math.cos(radPerIter*(a0)) - (r)*Math.cos(radPerIter*(a0+skewShift)*(R+r)/r));
         let y0 = ((R+r)*Math.sin(radPerIter*(a0)) - (r)*Math.sin(radPerIter*(a0+skewShift)*(R+r)/r));
         var d = `M${imgCenter.x+x0},${imgCenter.y+y0} `
         
+        var currentPathObj = document.getElementById("path0");
+        
+        // currentPathObj.setAttribute("stroke",`hsl(${220}, ${getRandomInt(0,70)}%, ${getRandomInt(0,70)}%)`);
+       
+        this.cycloidSegments[0].push(`M${imgCenter.x+x0},${imgCenter.y+y0} `)
+        var maxSegments = Math.floor(numCusps*360/degPerIter)
+
+
+        var pastX = x0;
+        var pastY = y0
+        var numSubPaths = Math.floor(maxSegments/numDivisions);
+
         for(let i =0; i<numCusps*360; i+=degPerIter) {
             if(i==0) continue;
-            let a = i;
-            
-            let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a+skewShift)*(R+r)/r));
-            let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a+skewShift)*(R+r)/r));
+            let pathOrder = Math.floor(i/degPerIter);
+            let currentDivision = measureIndexOfArray(maxSegments,numDivisions, pathOrder);
 
-            // var x1 = ((R+r)*Math.cos(radPerIter*(a-degPerIter)) - (r)*Math.cos(radPerIter*(a-degPerIter)*(R+r)/r));
-            // var y1 = ((R+r)*Math.sin(radPerIter*(a-degPerIter)) - (r)*Math.sin(radPerIter*(a-degPerIter)*(R+r)/r));
-            // d+=`C${xCoeff*x1},${yCoeff*y1},${Math.hypot(x1,x)},${Math.hypot(y1,y)}, ${imgCenter.x+x},${imgCenter.y+y} `
+            if(pathOrder%(numSubPaths)==0) {
+                let a = i;
+                let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a+skewShift)*(R+r)/r));
+                let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a+skewShift)*(R+r)/r));
+
+                let a0 = degPerIter*(pathOrder-1);
+                let x0 = ((R+r)*Math.cos(radPerIter*(a0)) - (r)*Math.cos(radPerIter*(a0+skewShift)*(R+r)/r));
+                let y0 = ((R+r)*Math.sin(radPerIter*(a0)) - (r)*Math.sin(radPerIter*(a0+skewShift)*(R+r)/r));
+                // this.cycloidSegments.push([`M${imgCenter.x+x0},${imgCenter.y+y0} `]);
+                // this.cycloidSegments[this.cycloidSegments.length-1][0] +=`A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `;
+
+
+                this.cycloidSegments[currentDivision].push(`M${imgCenter.x +x0},${imgCenter.y+y0} `);
+                this.cycloidSegments[currentDivision][this.cycloidSegments[currentDivision].length-1] +=`A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `;
+               
+            }
+            else {
+                let a = i;
+                let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a+skewShift)*(R+r)/r));
+                let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a+skewShift)*(R+r)/r));
+                // pastX = x;
+                // pastY = y;
+                this.cycloidSegments[currentDivision][this.cycloidSegments[currentDivision].length-1] += `A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
             
-            d+=`A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
+            
+            }
         }
-        this.cycloidPaths.push(d);
+
+
+
+
+        // for(let i =0; i<numCusps*360; i+=degPerIter) {
+        //     if(i==0) continue;
+        //     let a = i;
+        //     let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a+skewShift)*(R+r)/r));
+        //     let y = ((R+r)*Math.sin(radPerIter*a) - (r)*Math.sin(radPerIter*(a+skewShift)*(R+r)/r)); 
+        //     d+=`A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i} ${0} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
+        // }
+        // this.cycloidPaths.push(d);
+         console.log("this.cycloidSegments", this.cycloidSegments)
     }
-    // <filter id="imgFilter1" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
-                        
-    //                     <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="8" result="turb">
-                            
-    //                     </feTurbulence>
-    //                     <feDisplacementMap id="dispFE" result="displacement" in="SourceGraphic" in2="turbulence" scale="200" xChannelSelector="R" yChannelSelector="B">
-    //                         <animate attributeName="scale" values="200; 100; 50; 25"  dur="4s" repeatCount="indefinite"></animate>
-    //                     </feDisplacementMap>
-                        
-    //                     <feComposite in="displacement" in2="SourceAlpha" operator="in" result="comp" />
-    //                     <feBlend mode="overlay" in="comp" in2="SourceGraphic"/>
-    //                 </filter>
+
     render() {
         return(
             <Container id="homeContainer">
                 <svg className="geoSVG" id="mainSVG" width={this.svgWidth} height={this.svgHeight}>
-                    
+                     
+                    <filter id="dispFilter" colorInterpolationFilters='sRGB'>
+                        
+                        <feDisplacementMap id="fedisplacementmap" in="SourceGraphic" xChannelSelector="R" yChannelSelector="B" scale="100"></feDisplacementMap>
+                    </filter>
                     <g id="epicycloidGroup"></g>
                     <path id="epicycloid" fill="none" stroke="black" ></path>
                 </svg>
@@ -284,6 +396,7 @@ class Home extends React.Component {
                     <Button id="sequenceButton5" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 5</Button>
                     <Button id="sequenceButton6" className="item" onClick={(e)=>this.switchEpicycloid(e)}>Pattern 6</Button>
                 </Menu>
+               
             </Container>
         );
     }
