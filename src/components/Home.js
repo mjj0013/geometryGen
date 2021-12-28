@@ -200,6 +200,7 @@ class Home extends React.Component {
         if(isCanvas) {
             this.cycloidSegmentValues
         }
+
         for(let a=0; a <numDivisions;++a) {
             var pathString = ""
             var durPerPhase = 3;
@@ -211,7 +212,7 @@ class Home extends React.Component {
                 pathString+=";"
                 keySplines+=spline;
             }
-           
+            document.getElementById(`path${a}`).insertAdjacentHTML('beforeend',`<animate  begin='0s' type='skewX attributeName='transform' from="0 60 70" to "360 60 70" dur="3s" repeatCount="indefinite" />`); 
             document.getElementById(`path${a}`).insertAdjacentHTML('beforeend',`<animate id="epicycloidAnimation${a}"  begin="0s" attributeName="d" keySplines="${keySplines}" attributeType="XML" values="${pathString}" dur="${totalDur}s" repeatCount="indefinite" />`);
         }
         
@@ -235,7 +236,7 @@ class Home extends React.Component {
         var radPerIter = 57.2958;
         let numCusps = k;
         if(!Number.isInteger(k)) numCusps = p;
-    
+        var maxSegments = Math.floor(numCusps*360/degPerIter)
         var degPerIter = numCusps*((R+r)/r);
         let a0 = degPerIter*(1);
         let x0 = ((R+r)*Math.cos(radPerIter*(a0)) - (r)*Math.cos(radPerIter*(a0)*(R+r)/r));
@@ -252,7 +253,7 @@ class Home extends React.Component {
         this.cycloidSegmentValues.push([{'moveData':[[imgCenter.x+x0, imgCenter.y+y0]], 'arcData':[]}])
 
         // this.cycloidSegmentValues[0] = []
-       
+        
         var numSubPaths = Math.floor(maxSegments/numDivisions);
        
         console.log("maxSegments",maxSegments)
@@ -282,7 +283,7 @@ class Home extends React.Component {
                 let y0 = ((R+r)*Math.sin(radPerIter*(a0)) - (r)*Math.sin(radPerIter*(a0)*(R+r)/r));
                 this.cycloidSegments.push([`M${imgCenter.x +x0},${imgCenter.y +y0} `]);
                 this.cycloidSegments[this.cycloidSegments.length-1][0] +=`A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `;
-
+                console.log(this.cycloidSegmentValues);
                 this.cycloidSegmentValues.push([{'moveData':[[imgCenter.x+x0, imgCenter.y+y0]], 'arcData':[[imgCenter.x+x, imgCenter.y+y, (R+r)/r, (R+r)/r, 0, i, true]]}])
                 //this.cycloidSegmentValues[this.cycloidSegmentValues.length-1].push({'data': [[imgCenter.x+x, imgCenter.y+y, (R+r)/r, (R+r)/r, 0, i, true]]})
                 
@@ -295,8 +296,8 @@ class Home extends React.Component {
                 
                 this.cycloidSegments[this.cycloidSegments.length-1][0] += `A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
                 // this.cycloidSegmentValues[this.cycloidSegmentValues.length-1].push({'data': [[imgCenter.x+x, imgCenter.y+y, (R+r)/r, (R+r)/r, 0, i, true]]})
-                this.cycloidSegmentValues[this.cycloidSegmentValues.length-1].arcData.push([imgCenter.x+x, imgCenter.y+y, (R+r)/r, (R+r)/r, 0, i, true]);
-                this.cycloidSegmentValues[this.cycloidSegmentValues.length-1].moveData.push([-1])
+                this.cycloidSegmentValues[this.cycloidSegmentValues.length-1]['arcData'].push([imgCenter.x+x, imgCenter.y+y, (R+r)/r, (R+r)/r, 0, i, true]);
+                this.cycloidSegmentValues[this.cycloidSegmentValues.length-1]['moveData'].push([-1])
             }
         }
 
@@ -346,7 +347,7 @@ class Home extends React.Component {
             if(i==0) continue;
             let pathOrder = Math.floor(i/degPerIter);
             let currentDivision = measureIndexOfArray(maxSegments,numDivisions, pathOrder);
-
+            console.log(this.cycloidSegmentValues, currentDivision);
             if(pathOrder%(numSubPaths)==0) {
                 let a = i;
                 let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a+skewShift)*(R+r)/r));
@@ -357,13 +358,13 @@ class Home extends React.Component {
                 let y0 = ((R+r)*Math.sin(radPerIter*(a0)) - (r)*Math.sin(radPerIter*(a0+skewShift)*(R+r)/r));
                 // this.cycloidSegments.push([`M${imgCenter.x+x0},${imgCenter.y+y0} `]);
                 // this.cycloidSegments[this.cycloidSegments.length-1][0] +=`A${(R+r)/r} ${(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `;
-
+                
 
                 this.cycloidSegments[currentDivision].push(`M${imgCenter.x +x0},${imgCenter.y+y0} `);
                 this.cycloidSegments[currentDivision][this.cycloidSegments[currentDivision].length-1] +=`A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `;
                 
-                this.cycloidSegmentValues[currentDivision].moveData.push([imgCenter.x+x0, imgCenter.y+y0])
-                this.cycloidSegmentValues[currentDivision].arcData.push([imgCenter.x+x, imgCenter.y+y, xCoeff*(R+r)/r, yCoeff*(R+r)/r, 0, i, true])
+                this.cycloidSegmentValues[currentDivision]['moveData'].push([imgCenter.x+x0, imgCenter.y+y0])
+                this.cycloidSegmentValues[currentDivision]['arcData'].push([imgCenter.x+x, imgCenter.y+y, xCoeff*(R+r)/r, yCoeff*(R+r)/r, 0, i, true])
                 
             }
             else {
@@ -375,8 +376,8 @@ class Home extends React.Component {
                 this.cycloidSegments[currentDivision][this.cycloidSegments[currentDivision].length-1] += `A${xCoeff*(R+r)/r} ${yCoeff*(R+r)/r} ${i} ${1} ${1} ${imgCenter.x+x},${imgCenter.y+y} `
                 
 
-                this.cycloidSegmentValues[currentDivision].arcData.push([imgCenter.x+x, imgCenter.y+y, xCoeff*(R+r)/r, yCoeff*(R+r)/r, 0, i, true])
-                this.cycloidSegmentValues[this.cycloidSegmentValues.length-1].moveData.push([-1])
+                this.cycloidSegmentValues[currentDivision]['arcData'].push([imgCenter.x+x, imgCenter.y+y, xCoeff*(R+r)/r, yCoeff*(R+r)/r, 0, i, true])
+                this.cycloidSegmentValues[currentDivision]['moveData'].push([-1])
             
             }
         }
