@@ -14,3 +14,10 @@
     height:25px;
     position:absolute;
 }
+
+.geoCanvas {
+    position:absolute;
+    border: 1px solid black;
+    left:50fr;
+    top:125vh;
+}
