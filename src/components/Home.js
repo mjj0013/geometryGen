@@ -194,14 +194,11 @@ class Home extends React.Component {
 
     drawEpicycloid() {
         var mainCanvas = document.getElementById("mainCanvas");
-        
+
     }
     animateEpicycloid(isCanvas=false) {
         if(isCanvas) {
-
             this.cycloidSegmentValues
-
-
         }
         for(let a=0; a <numDivisions;++a) {
             var pathString = ""
@@ -303,7 +300,7 @@ class Home extends React.Component {
             }
         }
 
-        this.drawEpicycloid()
+        // this.drawEpicycloid()
         document.getElementById("epicycloidGroup").appendChild(currentPathObj);
        
         // for(let i =0; i<(numCusps)*(360); i+=degPerIter) {
