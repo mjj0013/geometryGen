@@ -4,7 +4,7 @@
 }
 .geoSVG {
     position:absolute;
-    border:1px solid black;
+    /* border:1px solid black; */
     left:50fr;
     top:75px;
 }
@@ -21,3 +21,23 @@
     left:50fr;
     top:125vh;
 }
+#epicycloidGroup > * {
+    /* transition:transform 2s ease-in; */
+    stroke:url(#gradient);
+    filter:url(#dispFilter);
+    transform-origin: center;
+    /* transform:scale(2); */
+}
+/* #epicycloidGroup:nth-child(n) {
+    transition:transform 2s ease-in;
+    filter:drop-shadow(30px 30px 4px #000000);
+    transform:skew(60deg);
+    transform-origin: center;
+    transform-style: preserve-3d;
+} */
+
+/* #epicycloidGroup > *:hover {
+    
+    transform: rotate(30deg);
+
+} */
