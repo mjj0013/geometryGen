@@ -7,13 +7,14 @@ import { Routes, BrowserRouter, Route} from "react-router-dom";
 //import Loading from './Loading';
 
 import Home from './Home';
-
+import MandelBox from './MandelBox'
 function App() {
 	return(
 		<BrowserRouter>
 			<div>
 				<Routes>
 					<Route  path="/" element={<Home />} />
+					<Route  path="/mandelBox" element={<MandelBox />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

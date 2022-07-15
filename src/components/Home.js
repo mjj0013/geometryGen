@@ -28,6 +28,8 @@ class Home extends React.Component {
         this.cycloidPaths = [];
         this.svgWidth=800;
         this.svgHeight=700;
+        // this.svgWidth=300;
+        // this.svgHeight=300;
         this.currentEpicycloid = 1;
 
         this.cycloidSegments = [];
@@ -37,6 +39,16 @@ class Home extends React.Component {
         this.cycloidSegmentValues = [];
 
         this.canvasAnimationIter = 0;
+
+        // ["#06F935", "#F93506","#3506F9"]
+        // ["#6036C9", "#AA36C9", "#3655C9"]
+        // ["#52AD58", "#5852AD", "#AD5852"]
+        // ["#FFD700", "#00FFD7", "#D700FF"]
+        // [ "#00FFD7", "#D700FF","#FFD700"]
+        // ["#23CADC", "#236EDC", "#23DC91"]
+
+        // ["#1982E6","#191CE6", "#19E6E3"]
+        this.triadColors =["#1982E6","#191CE6", "#19E6E3"]
 	}
 
     componentDidMount() {
@@ -413,10 +425,10 @@ class Home extends React.Component {
 
         var currentPathObj = document.createElementNS("http://www.w3.org/2000/svg", "path");
         currentPathObj.setAttribute("id","path0");
-        currentPathObj.onmouseenter = (e) => this.epicycloidTouched(e);
+        // currentPathObj.onmouseenter = (e) => this.epicycloidTouched(e);
         // currentPathObj.setAttribute("stroke",`hsl(${220}, ${getRandomInt(0,70)}%, ${getRandomInt(0,70)}%)`);
-        currentPathObj.setAttribute("stroke","black");
-        currentPathObj.setAttribute("fill","none");
+        
+        currentPathObj.setAttribute("fill",this.triadColors[1]);
         this.cycloidSegments.push([`M${imgCenter.x+x0},${imgCenter.y+y0} `])
         this.cycloidSegmentValues.push({'moveData':[[imgCenter.x+x0, imgCenter.y+y0]], 'arcData':[[-1]]})
 
@@ -434,8 +446,8 @@ class Home extends React.Component {
                 currentPathObj = document.createElementNS("http://www.w3.org/2000/svg", "path");
                 currentPathObj.onmouseenter = (e) => this.epicycloidTouched(e);
                 currentPathObj.setAttribute("id",`path${this.cycloidSegmentValues.length}`);
-                currentPathObj.setAttribute("stroke","black");
-                currentPathObj.setAttribute("fill","none");
+                // currentPathObj.setAttribute("stroke","black");
+                currentPathObj.setAttribute("fill",this.triadColors[1]);
 
                 let a = i;
                 let x = ((R+r)*Math.cos(radPerIter*a) - (r)*Math.cos(radPerIter*(a)*(R+r)/r));
@@ -584,24 +596,44 @@ class Home extends React.Component {
     }
 
     render() {
+     
         return(
             <Container id="homeContainer">
                 <svg className="geoSVG" id="mainSVG" width={this.svgWidth} height={this.svgHeight}>
-                    {/* <rect x={0} y={0} width={this.svgWidth} height={this.svgHeight} fill="#c8c800"></rect> */}
+                    
                 <defs>
+                    <pattern id="Pattern" x="0" y="0" width=".100" height=".100" patternUnits='userSpaceOnUse' patternContentUnits='objectBoundingBox' >
+                        <rect x="5" y="5" width="5" height="5" fill={this.triadColors[2]}/>
+                        <rect x="0" y="0" width="2" height="2" fill={this.triadColors[1]}/>
+                        <circle cx="10" cy="10" r="20" fill={this.triadColors[0]} fill-opacity="0.5"/>
+                    </pattern>
+                    {/* 52AD58,  5852AD, AD5852*/}
                     <radialGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         
-                        <stop offset="20%"   stop-color="#0000c8"/>
-                        <stop offset="100%" stop-color="#c8c800"/>
+                        <stop offset="0%"   stop-color={this.triadColors[0]}/>
+                        <stop offset="100%" stop-color={this.triadColors[1]}/>
                     </radialGradient>
-                </defs>
-                
+                    <radialGradient id="backgroundGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        
+                        {/* <stop offset="20%"   stop-color="#0000c8"/>
+                        <stop offset="100%" stop-color="#c8c800"/> */}
+                        <stop offset="0%"   stop-color={this.triadColors[1]}/>
+                        <stop offset="100%" stop-color={this.triadColors[2]}/>
+                    </radialGradient>
                     <filter id="dispFilter" colorInterpolationFilters='sRGB'>
-                        {/* <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="turbulence"/> */}
-                        <feTurbulence type="noise" baseFrequency="0.05" numOctaves="8" result="turbulence"/>
-                        <feDisplacementMap id="fedisplacementmap" in="SourceGraphic" in2="turbulence" xChannelSelector="G" yChannelSelector="B" scale="25"></feDisplacementMap>
-                        <feComposite in2="SourceGraphic" operator="over"/>
+                        
+                       {/*  <feGaussianBlur stdDeviation="5" fill='black' /> */}
+                        <feOffset in="SourceGraphic" dx="6" dy="6" result="offset"/>
+                      
+                        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="8" result="turbulence"/>
+                        <feDisplacementMap result="disp" id="fedisplacementmap" in="SourceGraphic" in2="turbulence" xChannelSelector="G" yChannelSelector="B" scale="15"></feDisplacementMap>
+                        
+                        <feComposite in="disp" in2="SourceGraphic" operator="over" result="turb"/>
+                       
                     </filter>
+                </defs>
+                    <rect x={0} y={0} width={this.svgWidth} height={this.svgHeight} fill="url(#backgroundGrad)"></rect>
+                    
                     <g id="epicycloidGroup" ></g>
                     <path id="epicycloid" fill="none" stroke="black" ></path>
                 </svg>
