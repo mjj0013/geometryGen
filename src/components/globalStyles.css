@@ -2,9 +2,14 @@
 #homeContainer {
     display:block;
 }
+#mandelBoxContainer {
+    display:block;
+}
 .geoSVG {
     position:absolute;
-    /* border:1px solid black; */
+    border:1px solid black;
+    /* width:300px;
+    height:300px; */
     left:50fr;
     top:75px;
 }
@@ -24,8 +29,15 @@
 #epicycloidGroup > * {
     /* transition:transform 2s ease-in; */
     stroke:url(#gradient);
-    filter:url(#dispFilter);
-    transform-origin: center;
+    mix-blend-mode:luminosity;
+    
+    stroke-linecap: round;
+    fill:url(#Pattern);
+    /* fill:#000000; */
+    fill-rule: evenodd;
+    /* box-shadow: 5px 5px 3px #000000; */
+    /* filter:url(#dispFilter); */
+    /* transform-origin: center; */
     /* transform:scale(2); */
 }
 /* #epicycloidGroup:nth-child(n) {
