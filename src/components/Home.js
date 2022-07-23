@@ -13,7 +13,17 @@ var numDivisions = 1;
 
 function measureIndexOfArray(arrayLength, divisions, currentAmount) {
     return Math.floor(currentAmount/(arrayLength/divisions))}
-
+const colorSchemes = [
+    ["#06F935", "#F93506", "#3506F9"], 
+    ["#52AD58", "#5852AD", "#AD5852"], 
+    ["#FFD700", "#00FFD7", "#D700FF"],
+    ["#00FFD7", "#D700FF", "#FFD700"],
+    ["#23CADC", "#236EDC", "#23DC91"],
+    ["#1982E6", "#191CE6", "#19E6E3"],
+    ["#6036C9", "#b897c0", "#3655C9"],
+    ["#50AF84", "#50AAAF", "#50AF55"],
+    ["#50AF84", "#50AAAF", "#408d44"] 
+]
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
@@ -40,15 +50,21 @@ class Home extends React.Component {
 
         this.canvasAnimationIter = 0;
 
-        // ["#06F935", "#F93506","#3506F9"]
-        // ["#6036C9", "#AA36C9", "#3655C9"]
-        // ["#52AD58", "#5852AD", "#AD5852"]
-        // ["#FFD700", "#00FFD7", "#D700FF"]
-        // [ "#00FFD7", "#D700FF","#FFD700"]
-        // ["#23CADC", "#236EDC", "#23DC91"]
 
-        // ["#1982E6","#191CE6", "#19E6E3"]
-        this.triadColors =["#1982E6","#191CE6", "#19E6E3"]
+        //  https://www.canva.com/colors/color-wheel/
+
+
+        // these are good
+        //  ["#06F935", "#F93506","#3506F9"]
+        //  ["#52AD58", "#5852AD", "#AD5852"]
+        //  ["#FFD700", "#00FFD7", "#D700FF"]
+        //  ["#00FFD7", "#D700FF","#FFD700"]
+        //  ["#23CADC", "#236EDC", "#23DC91"]
+        //  ["#1982E6","#191CE6", "#19E6E3"]
+        //  ["#6036C9", "#b897c0", "#3655C9"]
+        //  ["#50AF84", "#50AAAF", "#50AF55"]
+        //  ["#50AF84", "#50AAAF", "#408d44"]
+        this.triadColors = ["#6036C9", "#b897c0", "#3655C9"]
 	}
 
     componentDidMount() {
