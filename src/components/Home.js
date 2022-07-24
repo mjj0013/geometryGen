@@ -429,6 +429,7 @@ class Home extends React.Component {
         var imgCenter = {x:this.svgWidth/2-(R+r)/r, y:this.svgHeight/2-(R+r)/r}
         var radPerIter = 57.2958;
         let numCusps = k;
+        
         if(!Number.isInteger(k)) numCusps = p;
         
         var degPerIter = numCusps*((R+r)/r);
@@ -450,7 +451,7 @@ class Home extends React.Component {
 
         var numSubPaths = Math.floor(maxSegments/numDivisions);
         var currentDivision = 0;
-        for(let i =0; i<numCusps*360; i+=degPerIter) {
+        for(let i =0; i<(numCusps)*360; i+=degPerIter) {
             if(i==0) continue;
             let pathOrder = Math.floor(i/degPerIter);
             var newDivision = measureIndexOfArray(maxSegments,numDivisions, pathOrder);
@@ -539,6 +540,7 @@ class Home extends React.Component {
         var radPerIter = 57.2958;
         
         let numCusps = k;
+        
         if(!Number.isInteger(k)) numCusps = p;
         var degPerIter = numCusps*((R+r)/r);
 
@@ -557,7 +559,7 @@ class Home extends React.Component {
 
         var numSubPaths = Math.floor(maxSegments/numDivisions);
         var currentDivision =0;
-        for(let i =0; i<numCusps*360; i+=degPerIter) {
+        for(let i =0; i<(numCusps)*360 ; i+=degPerIter) {
             if(i==0) continue;
             let pathOrder = Math.floor(i/degPerIter);
             var newDivision = measureIndexOfArray(maxSegments,numDivisions, pathOrder);
